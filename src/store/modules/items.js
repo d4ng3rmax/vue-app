@@ -50,21 +50,27 @@ const actions = {
     console.log(limit);
   },
 
-  async updateTodo({ commit }, updTodo) {
+  async updateItem({ commit }, updTodo) {
     const response = await axios.put(
-      `https://jsonplaceholder.typicode.com/items/${updTodo.id}`,
+      `https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/items/${updTodo.id}`,
       updTodo
     );
 
     // console.log(response.data);
-    commit('updateTodo', response.data);
+    commit('updateItem', response.data);
   }
 };
 
 const mutations = {
   setItems: (state, items) => (state.items = items),
   newItem: (state, item) => state.items.unshift(item),
-  deleteItem: (state, id) => state.items = state.items.filter(item => item.id !== id)
+  deleteItem: (state, id) => state.items = state.items.filter(item => item.id !== id),
+  updateItem: (state, updItem) => {
+    const index = state.items.findIndex(item => item.id ===updItem.id);
+    if (index !== -1){
+      state.items.splice(index, 1, updItem)
+    }
+  }
 };
 
 export default {

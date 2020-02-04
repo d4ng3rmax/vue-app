@@ -11,7 +11,12 @@
         </span>
       </div>
       <div class="items">
-        <div v-for="item in allItems" :key="item.id" class="item">
+        <div 
+          @dblclick="onDblClick(item)" 
+          v-for="item in allItems" 
+          :key="item.id" 
+          class="item"
+          v-bind:class="{'is-complete': item.completed}">
           {{ item.title }}
           <i @click="deleteItem(item.id)" class="fas fa-trash-alt"></i>
         </div>
@@ -25,7 +30,16 @@
   export default {
     name: "Items",
     methods: {
-      ...mapActions(["fetchItems", "deleteItem"])      
+      ...mapActions(["fetchItems", "deleteItem", "updateItem"]),
+      onDblClick(item) {
+        const updItem = {
+          id: item.id,
+          title: item.title,
+          complete: !item.completed
+        }
+
+        this.updateItem(updItem);
+      }
     },
     computed: mapGetters(['allItems']),
     created() {
@@ -77,6 +91,11 @@
     width: 10px;
     height: 10px;
     background: #eccd19;
+  }
+
+  .is-complete {
+    background: #08368b;
+    color: #fff;
   }
 
   @media (max-width: 500px) {
