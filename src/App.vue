@@ -1,18 +1,21 @@
 <template>
   <div id="app">
     <div class="container">
-      <Todos />
+      <AddItem/>
+      <Items/>
     </div>      
   </div>
 </template>
 
 <script>
-  import Todos from "./components/Todos.vue";
+  import Items from "./components/Items.vue";
+  import AddItem from "./components/AddItem.vue";
 
   export default {
     name: "app",
     components: {
-      Todos
+      Items,
+      AddItem
     }
   };
 </script>

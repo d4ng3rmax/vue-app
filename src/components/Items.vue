@@ -1,9 +1,9 @@
 <template>
     <div>
-      <h3>Todos</h3>
-      <div class="todos">
-        <div v-for="todo in allTodos" :key="todo.id" class="todo">
-          {{ todo.title }}
+      <h3>Itens</h3>
+      <div class="items">
+        <div v-for="item in allItems" :key="item.id" class="item">
+          {{ item.title }}
         </div>
       </div>
     </div>
@@ -13,27 +13,27 @@
   import { mapGetters, mapActions } from 'vuex';
 
   export default {
-    name: "Todos",
+    name: "Items",
     methods: {
-      ...mapActions(['fetchTodos'])      
+      ...mapActions(['fetchItems'])      
     },
-    computed: mapGetters(['allTodos']),
+    computed: mapGetters(['allItems']),
     created() {
-      this.fetchTodos();
+      this.fetchItems();
     }
   };
 </script>
 
 <style scoped>
-  .todos {
+  .items {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
   }
 
-  .todo {
+  .item {
     border: 1px solid #ccc;
-    background: #41b883;
+    background: #5285e6;
     padding: 1rem;
     border-radius: 5px;
     text-align: center;
