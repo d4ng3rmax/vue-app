@@ -35,29 +35,30 @@ const actions = {
     commit('removeItem', id);
   },
 
-  // async filterItems({ commit }, e) {
-  //   // Get selected number
-  //   const limit = parseInt(
-  //     e.target.options[e.target.options.selectedIndex].innerText
-  //   );
+  async filterItems({ commit }, e) {
 
-  //   const response = await axios.get(
-  //     `https://jsonplaceholder.typicode.com/items?_limit=${limit}`
-  //   );
+    // Get selected number
+    const limit = parseInt(
+      e.target.options[e.target.options.selectedIndex].innerText
+    );
 
-  //   commit('setItems', response.data);
-  // },
+    const response = await axios.get(
+      `https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/items?_limit=${limit}`
+    );
 
-  // async updateTodo({ commit }, updTodo) {
-  //   const response = await axios.put(
-  //     `https://jsonplaceholder.typicode.com/items/${updTodo.id}`,
-  //     updTodo
-  //   );
+    commit('setItems', response.data);
+    console.log(limit);
+  },
 
-  //   // console.log(response.data);
+  async updateTodo({ commit }, updTodo) {
+    const response = await axios.put(
+      `https://jsonplaceholder.typicode.com/items/${updTodo.id}`,
+      updTodo
+    );
 
-  //   commit('updateTodo', response.data);
-  // }
+    // console.log(response.data);
+    commit('updateTodo', response.data);
+  }
 };
 
 const mutations = {

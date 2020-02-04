@@ -1,6 +1,15 @@
 <template>
     <div>
       <h3>Itens</h3>
+      <div class="legend">
+        <span>Clicar 2x para checar como completo</span>
+        <span>
+          <span class="inconplete-box"></span> = Incompleto
+        </span>
+        <span>
+          <span class="complete-box"></span> = Completo
+        </span>
+      </div>
       <div class="items">
         <div v-for="item in allItems" :key="item.id" class="item">
           {{ item.title }}
@@ -48,5 +57,31 @@
     right: 10px;
     color: #fff;
     cursor: pointer;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+  }
+
+  .complete-box {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #0e9135;
+  }
+
+  .inconplete-box {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #eccd19;
+  }
+
+  @media (max-width: 500px) {
+    .items {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
