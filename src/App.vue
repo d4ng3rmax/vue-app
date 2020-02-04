@@ -2,6 +2,7 @@
   <div id="app">
     <div class="container">
       <AddItem/>
+      <FilterItems/>
       <Items/>
     </div>      
   </div>
@@ -10,12 +11,14 @@
 <script>
   import Items from "./components/Items.vue";
   import AddItem from "./components/AddItem.vue";
+  import FilterItems from "./components/FilterItems.vue";
 
   export default {
     name: "app",
     components: {
       Items,
-      AddItem
+      AddItem,
+      FilterItems
     }
   };
 </script>

@@ -4,6 +4,7 @@
       <div class="items">
         <div v-for="item in allItems" :key="item.id" class="item">
           {{ item.title }}
+          <i @click="deleteItem(item.id)" class="fas fa-trash-alt"></i>
         </div>
       </div>
     </div>
@@ -15,7 +16,7 @@
   export default {
     name: "Items",
     methods: {
-      ...mapActions(['fetchItems'])      
+      ...mapActions(["fetchItems", "deleteItem"])      
     },
     computed: mapGetters(['allItems']),
     created() {
@@ -38,6 +39,14 @@
     border-radius: 5px;
     text-align: center;
     position: relative;
+    cursor: pointer;
+  }
+
+  i {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #fff;
     cursor: pointer;
   }
 </style>
