@@ -1,11 +1,11 @@
-# vue-app
+# Teste em Vue
 
-## Project setup
+## Setup do Projeto
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compilar para Desenvolvimento
 ```
 yarn serve
 ```
