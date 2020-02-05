@@ -11,7 +11,8 @@ const getters = {
 const actions = {
   async fetchItems({ commit }) {
     const response = await axios.get(
-      'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos'
+      // 'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos'
+      'https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/d4ng3rmax/demo-api/posts'
     );
 
     commit('setItems', response.data);
@@ -20,7 +21,8 @@ const actions = {
   async addItem({ commit }, title) {
     console.log("Item " + title + " Adicionado!");
     const response = await axios.post(
-      'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos',
+      // 'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos',
+      'https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/d4ng3rmax/demo-api/posts',
       { title, completed: false }
     );
 
@@ -30,7 +32,8 @@ const actions = {
   async deleteItem({ commit }, id) {
     console.log("Item " + id + " Removido!");
 
-    await axios.delete(`https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos/${id}`);
+    // await axios.delete(`https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos/${id}`);
+    await axios.delete(`https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/d4ng3rmax/demo-api/posts/${id}`);
     
     commit('deleteItem', id);
   },
@@ -43,7 +46,8 @@ const actions = {
     );
 
     const response = await axios.get(
-      `https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos?_limit=${limit}`
+      // `https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos?_limit=${limit}`
+      `https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/d4ng3rmax/demo-api/posts?_limit=${limit}`
     );
 
     commit('setItems', response.data);
@@ -52,7 +56,8 @@ const actions = {
 
   async updateItem({ commit }, updTodo) {
     const response = await axios.put(
-      `https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos/${updTodo.id}`,
+      // `https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/todos/${updTodo.id}`,
+      `https://cors-anywhere.herokuapp.com/https://my-json-server.typicode.com/d4ng3rmax/demo-api/posts/${updTodo.id}`,
       updTodo
     );
 
