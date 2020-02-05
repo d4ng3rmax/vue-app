@@ -83,18 +83,18 @@
     display: inline-block;
     width: 10px;
     height: 10px;
-    background: #08368b;
+    background: #5285e6;
   }
 
   .inconplete-box {
     display: inline-block;
     width: 10px;
     height: 10px;
-    background: #5285e6;
+    background: #d64807;
   }
 
   .is-complete {
-    background: #08368b;
+    background: #d64807;
     color: #fff;
   }
 
